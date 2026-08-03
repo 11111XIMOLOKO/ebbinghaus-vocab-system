@@ -17,6 +17,23 @@ AI 的行为：
 
 这不是 Specs 没写好。是体验细节没办法写成验收标准。
 
+## 快速开始
+
+**环境要求：** JDK 17+ / Maven 3.6+ / Node.js 18+ / MySQL 8.0+
+
+```bash
+# 1. 创建数据库
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS ebbinghaus_vocab"
+
+# 2. 启动后端（端口 8081）
+cd server && mvn spring-boot:run
+
+# 3. 启动前端（端口 5173）
+cd client && npm install && npm run dev
+```
+
+浏览器打开 `http://localhost:5173`，账号 `admin` / `admin123`。
+
 ## 与 v2 的关系
 
 v1 和 v2 基于完全相同的 SDD 文档，唯一的变量是开发过程中**有没有人的参与**。

@@ -51,6 +51,25 @@
 - 数据库操作偏好、UI 风格改造列为正式 Task
 - Tasks 新增「阶段九：界面风格统一」（T-UI-1~5），总计 60 项
 
+## 快速开始
+
+**环境要求：** JDK 17+ / Maven 3.6+ / Node.js 18+ / MySQL 8.0+
+
+```bash
+# 1. 创建数据库
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS ebbinghaus_vocab"
+
+# 2. 启动后端（端口 8082）
+cd server && mvn spring-boot:run
+
+# 3. 启动前端（端口 5173，被占会自动选 5174）
+cd client && npm install && npm run dev
+```
+
+浏览器打开 `http://localhost:5173`（或 5174），账号 `admin` / `admin123`。
+
+> 和 v1 使用不同端口，两个版本可以同时运行对比。
+
 ---
 
 v1 和 v2 基于同一套 Specs + Design 开发。结果的差距来自每一轮迭代中人的判断。

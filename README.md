@@ -57,7 +57,7 @@ v2 修复了 14 个 Bug、完成了 11 项体验优化。（完整清单见 [v2 
 
 ## 两个版本均可独立运行
 
-各目录内 README 包含完整启动步骤。
+各目录内 README 包含完整启动步骤。v1（8081）和 v2（8082）使用不同端口，可同时运行对比。
 
 ```
 git clone https://github.com/11111XIMOLOKO/ebbinghaus-vocab-system.git
