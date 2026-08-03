@@ -1,6 +1,4 @@
-# 艾宾浩斯单词背诵系统
-
-> 这不是一个"我做了个单词 App"的项目。这是一个关于 **AI 时代怎么开发软件** 的对比实验。
+# 走出 Vibe Coding 之后
 
 ## 背景
 
@@ -70,8 +68,8 @@ v2 修复了 14 个 Bug、完成了 11 项体验优化。（完整清单见 [v2 
 [v1](./v1-sdd-only/README.md)（端口 8081）和 [v2](./v2-polished/README.md)（端口 8082）各自包含完整启动步骤，使用不同端口，可同时运行对比。
 
 ```
-git clone https://github.com/11111XIMOLOKO/ebbinghaus-vocab-system.git
-cd ebbinghaus-vocab-system/v1-sdd-only   # 或 v2-polished
+git clone https://github.com/11111XIMOLOKO/beyond-vibe-coding.git
+cd beyond-vibe-coding/v1-sdd-only   # 或 v2-polished
 ```
 
 ## SDD 文档
