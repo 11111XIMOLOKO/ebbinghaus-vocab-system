@@ -8,7 +8,7 @@
 
 后来我才知道，这个问题在 2025 年有了一个名字——**Vibe Coding**[^1]。Andrej Karpathy 提出的这个词描述的正是"通过自然语言描述需求，让 AI 生成代码"的模式。行业很快发现了它的代价：Cursor CEO 称之为"代码高利贷"——开发快 10 倍，维护成本高 100 倍[^2]。谷歌云 AI 总监 Addy Osmani 的结论更直接——"Vibe Coding 已撞南墙。AI 能搞定前 70%，剩下 30% 只有经验丰富的工程师能完成。"[^3]
 
-我在网上看到了不少人在讨论应对方法，其中一套思路引起了我的注意——**SDD（Spec-Driven Development，规范驱动开发）**：在写任何一行代码之前，先出 Specs → Design → Tasks，然后按 Tasks 逐项让 AI 实现，人在每一轮中审查和反馈。规范是合同，代码是履约。SDD 在 2026 年已经是热门方法论——GitHub Spec Kit 接近十万星，OpenSpec 五万多星[^4]——但这个方法论本身还在早期阶段，Thoughtworks 技术雷达把它放在"评估"环而非"采纳"环，SDD 是否是长期解法仍存争议[^5]。
+我在网上看到了不少人在讨论应对方法，其中一套思路引起了我的注意——**SDD（Spec-Driven Development，规范驱动开发）**：在写任何一行代码之前，先出 Specs → Design → Tasks，然后按 Tasks 逐项让 AI 实现，人在每一轮中审查和反馈。规范是合同，代码是履约。SDD 在 2026 年已经是热门方法论——GitHub Spec Kit 超过十一万星，OpenSpec 超过五万六千星[^4]——但这个方法论本身还在早期阶段，Thoughtworks 技术雷达把它放在"评估"环而非"采纳"环，SDD 是否是长期解法仍存争议[^5]。
 
 我想验证一下这套方法到底行不行，但不想直接拿科研项目冒险。我需要一个功能边界清晰的 Web 系统作为对照实验的载体。于是有了这个仓库——同一套 SDD 文档，两次开发。唯一变量：**人有没有参与迭代**。
 
@@ -91,5 +91,5 @@ cd ebbinghaus-vocab-system/v1-sdd-only   # 或 v2-polished
 [^1]: Andrej Karpathy, "Vibe Coding", 2025. 参见 [36氪报道](https://36kr.com/p/3625932851201282)
 [^2]: Michael Truell (Cursor CEO), 压力测试实验. 参见 [36氪报道](https://36kr.com/p/3655462736683141)
 [^3]: Addy Osmani (谷歌云 AI 总监). 参见 [澎湃新闻](https://www.thepaper.cn/newsDetail_forward_32461664)
-[^4]: GitHub Spec Kit (93K+ stars), OpenSpec (52K+ stars). 截至 2026 年中
+[^4]: GitHub Spec Kit (~115K stars), OpenSpec (~56K stars). 截至 2026 年 6 月
 [^5]: Thoughtworks 技术雷达 2025.11, SDD 位于 "Assess" 环. 参见 [CSDN 批判性审视](https://timpickle.blog.csdn.net/article/details/161547094)
