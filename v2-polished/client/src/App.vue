@@ -18,9 +18,6 @@
         <el-menu-item v-if="isAdmin" index="/admin">后台管理</el-menu-item>
       </el-menu>
 
-      <div style="position:absolute; bottom:16px; left:10px; right:10px;">
-        <el-button style="width:100%" @click="handleLogout">退出登录</el-button>
-      </div>
     </el-aside>
 
     <el-container class="main-shell">
@@ -30,10 +27,17 @@
           <span class="topbar-subtitle">基于遗忘曲线的智能复习规划</span>
         </div>
         <div class="topbar-actions">
-          <el-button type="primary" @click="$router.push('/schedule')">今日打卡</el-button>
+          <el-button type="primary" @click="handleCheckin">今日打卡</el-button>
           <div class="user-panel">
             <span class="user-label">当前用户</span>
-            <span class="user-entry">{{ userStore.username }}</span>
+            <el-dropdown @command="handleUserCmd">
+              <span class="user-entry">{{ userStore.username }}</span>
+              <template #dropdown>
+                <el-dropdown-menu>
+                  <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+                </el-dropdown-menu>
+              </template>
+            </el-dropdown>
           </div>
         </div>
       </el-header>
@@ -47,8 +51,10 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { ElMessage } from 'element-plus'
 import { useUserStore } from '@/stores/user'
 import { getMe } from '@/api/auth'
+import request from '@/api/request'
 
 const route = useRoute()
 const router = useRouter()
@@ -64,9 +70,13 @@ onMounted(async () => {
   ready.value = true
 })
 
-async function handleLogout() {
-  userStore.clearAuth()
-  router.push('/login')
+async function handleCheckin() {
+  try { await request.post('/schedule/checkin'); ElMessage.success('签到成功！') }
+  catch (e: any) { ElMessage.error(e.response?.data?.message || '签到失败') }
+}
+
+function handleUserCmd(cmd: string) {
+  if (cmd === 'logout') { userStore.clearAuth(); router.push('/login') }
 }
 </script>
 
