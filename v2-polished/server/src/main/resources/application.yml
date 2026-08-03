@@ -1,0 +1,40 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: ebbinghaus-vocab
+  # Redis 暂不启用
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/ebbinghaus_vocab?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 后续 T4 启用
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+
+# 后续 T4 启用
+jwt:
+  secret: ebbinghaus-vocab-jwt-secret-key-2024-please-change-in-production
+  expiration: 86400000
+
+# 后续 T5 启用
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
