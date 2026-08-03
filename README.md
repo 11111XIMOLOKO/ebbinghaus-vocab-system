@@ -10,7 +10,7 @@
 
 我在网上看到了不少人在讨论应对方法，其中一套思路引起了我的注意——**SDD（Spec-Driven Development，规范驱动开发）**：在写任何一行代码之前，先出 Specs → Design → Tasks，然后按 Tasks 逐项让 AI 实现，人在每一轮中审查和反馈。规范是合同，代码是履约。SDD 在 2026 年已经是热门方法论——[GitHub Spec Kit](https://github.com/github/spec-kit) 超过十一万星，[OpenSpec](https://github.com/Fission-AI/OpenSpec) 超过五万六千星——但这个方法论本身还在早期阶段，[Thoughtworks 技术雷达](https://timpickle.blog.csdn.net/article/details/161547094)把它放在"评估"环而非"采纳"环，SDD 是否是长期解法仍存争议。
 
-我想验证一下这套方法到底行不行，但不想直接拿科研项目冒险。我需要一个功能边界清晰的 Web 系统作为对照实验的载体。于是有了这个仓库——同一套 SDD 文档，两次开发。唯一变量：**人有没有参与迭代**。
+我想验证一下这套方法到底行不行，但不想直接拿科研项目冒险。我找了一个功能边界清晰的 Web 系统作为对照实验的载体——同一套 SDD 文档，两次开发。唯一变量：**人有没有参与迭代**。
 
 ## 实验设计
 
@@ -25,18 +25,9 @@
 
 **一样的 Specs。一样的 Design。结果天差地别。**
 
-## 快速对比
+## SDD 解决了什么——v1 的答案
 
-| | v1（纯 SDD） | v2（人机协作） |
-|---|---|---|
-| 首页 | ![v1](docs/screenshots/v1-dashboard.png) | ![v2](docs/screenshots/v2-dashboard.png) |
-| 词库 | ![v1](docs/screenshots/v1-wordbooks.png) | ![v2](docs/screenshots/v2-wordbooks.png) |
-| 复习 | ![v1](docs/screenshots/v1-review.png) | ![v2](docs/screenshots/v2-review.png) |
-| 统计 | ![v1](docs/screenshots/v1-statistics.png) | ![v2](docs/screenshots/v2-statistics.png) |
-
-## SDD 解决了什么
-
-对比一下没有 SDD 之前我在科研项目里踩的坑和这次 v1 的结果——
+对比之前没有 SDD 时我在科研项目里踩的坑——
 
 | | 没有 SDD（以前） | 有 SDD（v1） |
 |---|---|---|
@@ -47,13 +38,22 @@
 
 **SDD 确实解决了 Vibe Coding 最核心的"失控"问题。** v1 就是证据——AI 独立完成，55 项任务全部通过，功能正确。
 
-## v1 和 v2 的差距说明了什么
+## v1 和 v2 的差距——AI Agent 当前的能力边界
 
 但 v1 离"能用"还差一口气。差的那口气不是高深技术——是那些你坐在浏览器前真正用了一遍之后才会发现的东西。按钮没有颜色区分，点完之后不知道成功了没有，不小心操作了没有撤销。
 
 这不是 SDD 的问题。这是 AI Agent 当前能力的边界——它可以在有明确验收标准的情况下保证功能正确，但它做不到"假设自己是用户，用了一遍之后发现这里体验不好"。**体验判断需要人的参与，至少在 2026 年是这样。**
 
 v2 修复了 14 个 Bug、完成了 11 项体验优化。（完整清单见 [v2 README](./v2-polished/README.md)）
+
+## 快速对比
+
+| | v1（纯 SDD） | v2（人机协作） |
+|---|---|---|
+| 首页 | ![v1](docs/screenshots/v1-dashboard.png) | ![v2](docs/screenshots/v2-dashboard.png) |
+| 词库 | ![v1](docs/screenshots/v1-wordbooks.png) | ![v2](docs/screenshots/v2-wordbooks.png) |
+| 复习 | ![v1](docs/screenshots/v1-review.png) | ![v2](docs/screenshots/v2-review.png) |
+| 统计 | ![v1](docs/screenshots/v1-statistics.png) | ![v2](docs/screenshots/v2-statistics.png) |
 
 ## 两个版本均可独立运行
 
